@@ -5,6 +5,7 @@
 
 # python
 .venv
+.env
 
 # build
 /build*

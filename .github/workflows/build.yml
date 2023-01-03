@@ -12,26 +12,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: example-application
+          path: zephyr-playground
 
       - name: Initialize
-        working-directory: example-application
+        working-directory: zephyr-playground
         run: |
           west init -l .
           west update
 
       - name: Build firmware
-        working-directory: example-application
+        working-directory: zephyr-playground
         run: |
-          west build -b custom_plank app
-
-      - name: Twister Tests
-        working-directory: example-application
-        run: |
-          ../zephyr/scripts/twister -G --board-root boards/ --testsuite-root ./tests/
+          west build -b rpi_pico app
 
       - name: Archive firmware
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: example-application/build/zephyr/zephyr.*
+          path: zephyr-playground/build/zephyr/zephyr.*

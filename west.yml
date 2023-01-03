@@ -3,8 +3,7 @@
 
 manifest:
   self:
-    path: example-application
-    west-commands: scripts/west-commands.yml
+    path: zephyr-playground
 
   remotes:
     - name: zephyrproject-rtos
@@ -13,5 +12,5 @@ manifest:
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
-      revision: main
+      revision: v3.2.0
       import: true
